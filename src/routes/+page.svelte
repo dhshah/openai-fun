@@ -64,7 +64,7 @@
     align-self: flex-end;
   }
   .gpt-message {
-    background-color: #6e6e6e;
+    background-color: #c6c6c6;
     align-self: flex-start;
   }
   .chat {
@@ -94,8 +94,16 @@
     color: #000;
     border: 3px solid #000;
   }
+  .container > h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 </style>
 <div class="container">
+  <h1>Sarcastic & Funny Yoda Bot</h1>
   <button class="clear-button" on:click={clearMessages}>Clear Messages</button>
   <div class='chat'>
     {#each $messages.filter(message => message.role !== 'system') as message}
