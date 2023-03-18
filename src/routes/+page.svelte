@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from "svelte";
   import { messages, reset } from "../stores/messages";
   interface ChatMessage {
     role: string;
@@ -6,6 +7,7 @@
     image?: string;
   }
 
+  let inputBox: HTMLInputElement;
   let chatting = false;
   let newMessage: string;
 
@@ -41,6 +43,8 @@
   async function clearMessages() {
     reset();
   }
+
+  onMount(() => {inputBox.focus();});
 </script>
 <style>
   * {
@@ -86,6 +90,9 @@
     background: transparent;
     border-radius: var(--size-radius);
   }
+    .input-container > input:disabled {
+    background: #c6c6c6;
+  }
   .clear-button {
     position: absolute;
     top: 10px;
@@ -106,6 +113,9 @@
   <h1>Sarcastic & Funny Yoda Bot</h1>
   <button class="clear-button" on:click={clearMessages}>Clear Messages</button>
   <div class='chat'>
+    <div class="message gpt-message">
+      <p style="margin:0">Hello, I am Yoda. Ask me a question below.</p>
+    </div>
     {#each $messages.filter(message => message.role !== 'system') as message}
       <div class={'message ' + (message.role === 'user' ? 'user-message' : 'gpt-message')}>
         <p style="margin:0">{message.content}</p>
@@ -113,6 +123,6 @@
     {/each}
   </div>
   <div class="input-container">
-    <input disabled={chatting} bind:value={newMessage} on:keydown={handleKeydown}/>
+    <input bind:this={inputBox} on:blur={() => inputBox?.focus()} disabled={chatting} bind:value={newMessage} on:keydown={handleKeydown}/>
   </div>
 </div>

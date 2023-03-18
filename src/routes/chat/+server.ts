@@ -9,17 +9,17 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-
-const token_limit = TOKEN_LIMIT ? parseInt(TOKEN_LIMIT) : 30;
+const system_messages = [
+	{ role: 'system', content: 'Be more sarcastic and funny. And also answer like you are yoda.' }
+];
 
 export const POST = (async ({ request }) => {
 	const { messages } = await request.json();
-
 	try {
 		const chatGPT = await openai.createChatCompletion({
 			model: 'gpt-3.5-turbo',
-			messages,
-			max_tokens: token_limit
+			messages: [...system_messages, ...messages],
+			max_tokens: parseInt(TOKEN_LIMIT)
 		});
 		return json(chatGPT.data.choices[0].message);
 	} catch (e) {

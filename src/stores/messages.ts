@@ -8,17 +8,13 @@ interface ChatMessage {
 	image?: string;
 }
 
-const system_prompts: ChatMessage[] = [
-	{ role: 'system', content: 'Be more sarcastic and funny. And also answer like you are yoda.' }
-];
-
 let _messages: Writable<ChatMessage[]>;
 let _reset;
 if (browser) {
 	const localMessages = localStorage?.getItem('messages');
-	_messages = writable<ChatMessage[]>(localMessages ? JSON.parse(localMessages) : system_prompts);
+	_messages = writable<ChatMessage[]>(localMessages ? JSON.parse(localMessages) : []);
 	_messages.subscribe((value) => (localStorage.messages = JSON.stringify(value)));
-	_reset = () => _messages.set(system_prompts);
+	_reset = () => _messages.set([]);
 } else {
 	_messages = writable<ChatMessage[]>([]);
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
