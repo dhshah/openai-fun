@@ -16,7 +16,8 @@ export const POST = (async ({ request }) => {
 	try {
 		const chatGPT = await openai.createChatCompletion({
 			model: 'gpt-3.5-turbo',
-			messages
+			messages,
+			max_tokens: 30
 		});
 		return json(chatGPT.data.choices[0].message);
 	} catch (e) {
