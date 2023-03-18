@@ -123,6 +123,6 @@
     {/each}
   </div>
   <div class="input-container">
-    <input bind:this={inputBox} on:blur={() => inputBox?.focus()} disabled={chatting} bind:value={newMessage} on:keydown={handleKeydown}/>
+    <input bind:this={inputBox} on:blur={() => inputBox.focus()} disabled={chatting} bind:value={newMessage} on:keydown={handleKeydown}/>
   </div>
 </div>
