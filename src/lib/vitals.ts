@@ -17,10 +17,10 @@ function getConnectionSpeed() {
 function sendToAnalytics(
 	metric: Metric,
 	options: {
-		params: { [s: string]: any } | ArrayLike<any>;
+		params: { [s: string]: string | RegExp } | ArrayLike<string | RegExp>;
 		path: string;
 		analyticsId: string;
-		debug: boolean;
+		debug?: boolean;
 	}
 ) {
 	const page = Object.entries(options.params).reduce(
@@ -57,7 +57,12 @@ function sendToAnalytics(
 		});
 }
 
-export function webVitals(options: any) {
+export function webVitals(options: {
+	params: { [s: string]: string | RegExp } | ArrayLike<string | RegExp>;
+	path: string;
+	analyticsId: string;
+	debug?: boolean;
+}) {
 	try {
 		getFID((metric) => sendToAnalytics(metric, options));
 		getTTFB((metric) => sendToAnalytics(metric, options));
