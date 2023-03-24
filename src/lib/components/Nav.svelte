@@ -1,6 +1,6 @@
 <nav class="navbar">
 	<ul class="navbar-nav">
-		<li class="nav-item">
+		<li class="nav-item home">
 			<a class="nav-link" href="/">
 				<svg
 					viewBox="-2.4 -2.4 28.80 28.80"
@@ -42,9 +42,16 @@
 				<span class="link-text">Home</span>
 			</a>
 		</li>
-		<li class="nav-item">
+		<li class="nav-item yoda-chat">
 			<a class="nav-link" href="/yoda-chat">
 				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+					><g id="SVGRepo_bgCarrier" stroke-width="0"
+						><path
+							transform="translate(-2.4, -2.4), scale(0.8999999999999999)"
+							d="M16,31.845530579487484C19.882609110974393,31.48072638133087,22.337257505981192,27.79440051087288,24.667375294869917,24.66737529486992C26.57609624870485,22.10586592336231,27.421436227629318,19.17105642544185,27.80737286309401,16C28.271823514895765,12.183831519588027,29.80112867723993,7.635506345822392,27.06946778055029,4.930532219449713C24.339548947935263,2.227283138178359,19.83101965485117,4.019359605819127,16,4.307978441317877C12.626308833775713,4.562143364354769,8.771056605185883,3.990657900124457,6.48156972329728,6.481569723297277C4.231037081656586,8.930100182172353,5.410799550520188,12.678037179892595,5.253441357364258,15.999999999999998C5.081794349861821,19.623611619261304,3.4987760716796075,23.462707072225417,5.534972491360918,26.465027508639075C7.823703395985573,29.839703695075748,11.94029202022898,32.226974724901005,16,31.845530579487484"
+							fill="#f59090"
+							class="background"
+						/></g
 					><g id="SVGRepo_bgCarrier" stroke-width="0" /><g
 						id="SVGRepo_tracerCarrier"
 						stroke-linecap="round"
@@ -66,11 +73,16 @@
 </nav>
 
 <style>
+	* {
+		font-family: sans-serif;
+		color: white;
+	}
 	.navbar {
 		width: 5rem;
 		height: 100vh;
 		position: fixed;
-		background-color: var(--bg-primary);
+		background-color: #001829;
+		border-right: 3px solid #297ea6;
 		transition: width 200ms ease;
 		z-index: 100;
 	}
@@ -87,6 +99,14 @@
 
 	.nav-item {
 		width: 100%;
+		transition: background-color 200ms ease;
+	}
+
+	.nav-item.home:hover {
+		background-color: #7cddfe;
+	}
+	.nav-item.yoda-chat:hover {
+		background-color: #f59090;
 	}
 
 	.nav-link {
@@ -97,10 +117,15 @@
 		text-decoration: none;
 	}
 
+	.nav-item:hover .link-text {
+		color: black;
+	}
 	.link-text {
-		display: none;
 		margin-left: 1rem;
 		white-space: nowrap;
+		opacity: 0;
+		transition: opacity 200ms ease;
+		transition: color 200ms ease;
 	}
 
 	.nav-link svg {
@@ -114,6 +139,7 @@
 	}
 
 	.navbar:hover .link-text {
+		opacity: 1;
 		display: block;
 	}
 </style>

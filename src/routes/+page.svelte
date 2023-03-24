@@ -40,6 +40,15 @@
 	.hero p {
 		font-size: 3rem;
 	}
+	.link a {
+		color: #f59090;
+		text-shadow: #f59090 0 0 2px;
+		transition: text-shadow 250ms ease;
+	}
+
+	.link a:hover {
+		text-shadow: #f59090 0 0 20px;
+	}
 
 	.link {
 		font-size: 2rem;
