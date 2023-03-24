@@ -44,6 +44,7 @@
 		color: #f59090;
 		text-shadow: #f59090 0 0 2px;
 		transition: text-shadow 250ms ease;
+		text-decoration: none;
 	}
 
 	.link a:hover {
