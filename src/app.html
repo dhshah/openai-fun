@@ -7,8 +7,15 @@
 		%sveltekit.head%
 
 		<style>
+			/* There is some weird bug with where 0 padding moves things down */
 			html, body {
 				height: 100%; 
+				margin: 0;
+				padding: 0;
+				margin-top: -1px;
+				padding-top: 1px;
+			}
+			* {
 				margin: 0;
 				padding: 0;
 			}
