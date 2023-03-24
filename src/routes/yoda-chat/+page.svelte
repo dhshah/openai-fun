@@ -19,7 +19,7 @@
 
 		newMessage = '';
 
-		const res = await fetch('/chat', {
+		const res = await fetch('/yoda-chat', {
 			method: 'POST',
 			body: JSON.stringify({ messages: $messages })
 		});
@@ -74,12 +74,14 @@
 	* {
 		font-size: 18px;
 		font-family: 'Roboto', sans-serif;
+		color: white;
 	}
 	.container {
 		height: 100%;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		background-color: #001829;
 	}
 	.message {
 		border-radius: 10px;
@@ -88,11 +90,11 @@
 		width: 50%;
 	}
 	.user-message {
-		background-color: #e6e6e6;
+		background-color: rgba(244, 144, 144, 0.75);
 		align-self: flex-end;
 	}
 	.gpt-message {
-		background-color: #c6c6c6;
+		background-color: #f59090;
 		align-self: flex-start;
 	}
 	.chat {
@@ -110,7 +112,6 @@
 		width: 100%;
 		border: 3px solid #000;
 		padding: 10px;
-		color: #000;
 		background: transparent;
 		border-radius: var(--size-radius);
 	}
