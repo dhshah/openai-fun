@@ -7,3 +7,5 @@ const configuration = new Configuration({
 });
 
 export const openai = new OpenAIApi(configuration);
+
+export const model = 'gpt-3.5-turbo';

@@ -42,5 +42,6 @@
 	}
 	.container > .content {
 		flex: 1;
+		padding: 5px;
 	}
 </style>

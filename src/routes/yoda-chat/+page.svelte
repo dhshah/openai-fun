@@ -29,7 +29,7 @@
 	}
 </script>
 
-<ChatComponent chatTitle={'Sarcastic & Funny Yoda Bot'} onTrigger={chat}>
+<ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
 	<div class="container">
 		<button class="clear-button" on:click={clearMessages}>Clear Messages</button>
 		<div class="chat">

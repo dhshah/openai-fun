@@ -46,6 +46,7 @@
 		--text-dark: #000;
 		--home-color: #7cddfe;
 		--yoda-chat-color: #f59090;
+		--rapbot-color: #867eec;
 		--warning-color: #f5c490;
 		--warning-text-color: #000;
 	}
