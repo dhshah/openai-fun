@@ -75,15 +75,15 @@
 <style>
 	* {
 		font-family: AnakCute, sans-serif;
-		color: white;
+		color: var(--text-primary);
 		font-size: 1.5rem;
 	}
 	.navbar {
 		width: 5rem;
 		height: 100vh;
 		position: fixed;
-		background-color: #001829;
-		border-right: 3px solid #297ea6;
+		background-color: var(--bg-primary);
+		border-right: 3px solid var(--bg-secondary);
 		transition: width 200ms ease;
 		z-index: 100;
 	}
@@ -104,10 +104,10 @@
 	}
 
 	.nav-item.home:hover {
-		background-color: #7cddfe;
+		background-color: var(--home-color);
 	}
 	.nav-item.yoda-chat:hover {
-		background-color: #f59090;
+		background-color: var(--yoda-chat-color);
 	}
 
 	.nav-link {
@@ -119,7 +119,7 @@
 	}
 
 	.nav-item:hover .link-text {
-		color: black;
+		color: var(--text-dark);
 	}
 	.link-text {
 		margin-left: 1rem;

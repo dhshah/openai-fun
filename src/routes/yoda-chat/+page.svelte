@@ -1,22 +1,17 @@
 <script lang="ts">
-	import FocussedInput from '$lib/components/FocussedInput.svelte';
-	import { onMount } from 'svelte';
-	import { messages, reset } from '../../stores/messages';
+	import ChatComponent from '$lib/components/ChatComponent.svelte';
+	import { createStore } from '$lib/store';
 	interface ChatMessage {
 		role: string;
 		content: string;
-		image?: string;
 	}
 
-	let chatting = false;
-	let newMessage: string;
+	const messages = createStore<ChatMessage[]>('messages', []);
 
-	async function chat() {
-		chatting = true;
-		console.log('chatting');
+	async function chat(query: string) {
 		messages.update((currentMessages: ChatMessage[]) => [
 			...currentMessages,
-			{ role: 'user', content: newMessage }
+			{ role: 'user', content: query }
 		]);
 
 		const res = await fetch('/yoda-chat', {
@@ -25,53 +20,53 @@
 		});
 
 		const chatGptMessage = await res.json();
-		console.log(chatGptMessage);
 
 		messages.update((currentMessages: ChatMessage[]) => [...currentMessages, chatGptMessage]);
-		chatting = false;
 	}
 
 	async function clearMessages() {
-		reset();
+		messages.set([]);
 	}
 </script>
 
-<div class="container">
-	<h1>Sarcastic & Funny Yoda Bot</h1>
-	<button class="clear-button" on:click={clearMessages}>Clear Messages</button>
-	<div class="chat">
-		<div class="message gpt-message">
-			<p style="margin:0">Hello, I am Yoda. Ask me a question below.</p>
-		</div>
-		{#each $messages.filter((message) => message.role !== 'system') as message}
-			<div class={'message ' + (message.role === 'user' ? 'user-message' : 'gpt-message')}>
-				<p style="margin:0">{message.content}</p>
+<ChatComponent chatTitle={'Sarcastic & Funny Yoda Bot'} onTrigger={chat}>
+	<div class="container">
+		<button class="clear-button" on:click={clearMessages}>Clear Messages</button>
+		<div class="chat">
+			<div class="message gpt-message">
+				<p style="margin:0">Hello, I am Yoda. Ask me a question below.</p>
 			</div>
-		{/each}
+			{#each $messages.filter((message) => message.role !== 'system') as message}
+				<div class={'message ' + (message.role === 'user' ? 'user-message' : 'gpt-message')}>
+					<p style="margin:0">{message.content}</p>
+				</div>
+			{/each}
+		</div>
 	</div>
-	<FocussedInput bind:value={newMessage} disabled={chatting} onTrigger={chat} />
-</div>
+</ChatComponent>
 
 <style>
 	.container {
-		height: 100%;
-		width: 100%;
 		display: flex;
 		flex-direction: column;
+		height: 100%;
+		align-items: stretch;
 	}
 	.message {
 		border-radius: 10px;
 		padding: 10px;
 		margin: 10px;
-		width: 50%;
+		max-width: 500px;
+		background-color: var(--yoda-chat-color);
 	}
 	.user-message {
-		background-color: rgba(244, 144, 144, 0.75);
+		filter: brightness(0.85);
 		align-self: flex-end;
+		margin-left: 50px;
 	}
 	.gpt-message {
-		background-color: #f59090;
 		align-self: flex-start;
+		margin-right: 50px;
 	}
 	.chat {
 		flex: auto;
@@ -80,18 +75,18 @@
 		flex-direction: column;
 	}
 	.clear-button {
-		position: absolute;
 		top: 10px;
 		right: 10px;
-		background: #f77;
-		color: #000;
-		border: 3px solid #000;
+		background: var(--yoda-chat-color);
+		border: none;
+		padding: 0.2rem;
+		border-radius: 2px;
+		box-shadow: 0 0 4px 0px white;
+		align-self: flex-end;
+		margin-right: 10px;
+		transition: box-shadow 150ms ease;
 	}
-	.container > h1 {
-		text-align: center;
-		margin: 0;
-		font-size: 2em;
-		margin-top: 10px;
-		margin-bottom: 10px;
+	.clear-button:hover {
+		box-shadow: 0 0 10px 2px var(--yoda-chat-color);
 	}
 </style>

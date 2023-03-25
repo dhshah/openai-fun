@@ -30,14 +30,17 @@
 	}
 
 	:root {
-		--bg-primary: #f5f5f5;
-		--bg-secondary: #fff;
-		--text-primary: #000;
-		--text-secondary: #fff;
+		--bg-primary: #001829;
+		--bg-secondary: #297ea6;
+		--text-primary: #fff;
+		--text-dark: #000;
+		--home-color: #7cddfe;
+		--yoda-chat-color: #f59090;
 	}
 	.container {
 		margin-left: 5rem;
-		height: 100vh;
+		height: 100%;
+		box-sizing: border-box;
 		background-color: #001829;
 	}
 </style>

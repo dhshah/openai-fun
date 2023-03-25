@@ -34,7 +34,6 @@
 <style>
 	.input-container {
 		width: 100%;
-		min-height: 85px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -43,14 +42,13 @@
 		outline: none;
 	}
 	.input-container > input {
-		caret-color: #297ea6;
+		caret-color: var(--bg-secondary);
 		caret-shape: bar;
 		box-sizing: border-box;
 		flex-grow: 1;
-		border: 3px solid #297ea6;
-		margin: 5px 10px;
+		border: 3px solid var(--bg-secondary);
 		padding: 5px 10px;
-		background: transparent;
+		background: var(--bg-primary);
 		border-radius: var(--size-radius);
 		color: white;
 	}
