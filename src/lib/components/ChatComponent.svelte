@@ -10,8 +10,9 @@
 
 	async function performAction() {
 		chatting = true;
-		await onTrigger(value);
+		let val = (' ' + value).slice(1);
 		value = '';
+		await onTrigger(val);
 		chatting = false;
 	}
 </script>
