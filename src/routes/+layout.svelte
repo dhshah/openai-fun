@@ -29,6 +29,16 @@
 		src: url('../static/AnakCute.ttf');
 	}
 
+	@media screen and (min-width: 480px) {
+		:root {
+			font-size: 16px;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		:root {
+			font-size: 11px;
+		}
+	}
 	:root {
 		--bg-primary: #001829;
 		--bg-secondary: #297ea6;
@@ -36,6 +46,8 @@
 		--text-dark: #000;
 		--home-color: #7cddfe;
 		--yoda-chat-color: #f59090;
+		--warning-color: #f5c490;
+		--warning-text-color: #000;
 	}
 	.container {
 		margin-left: 5rem;

@@ -77,7 +77,8 @@
 	.clear-button {
 		top: 10px;
 		right: 10px;
-		background: var(--yoda-chat-color);
+		background: var(--warning-color);
+		color: var(--warning-text-color);
 		border: none;
 		padding: 0.2rem;
 		border-radius: 2px;
