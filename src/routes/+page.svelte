@@ -1,8 +1,8 @@
 <div class="spacer layer1">
 	<div class="hero">
 		<h1>Welcome!</h1>
-		<p>I made this thing.</p>
-		<span class="link"> Try it here >>> <a href="/yoda-chat">Yoda Chat</a></span>
+		<p>I made this thing</p>
+		<span class="link"> Try it >>> <a href="/yoda-chat">Yoda Chat</a></span>
 	</div>
 </div>
 
@@ -28,12 +28,11 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+	}
+	.hero * {
 		font-family: AnakCute;
 	}
-	@font-face {
-		font-family: AnakCute;
-		src: url('../assets/AnakCute.ttf');
-	}
+
 	.hero h1 {
 		font-size: 7.5rem;
 	}
@@ -41,6 +40,7 @@
 		font-size: 3rem;
 	}
 	.link a {
+		font-size: 3rem;
 		color: #f59090;
 		text-shadow: #f59090 0 0 2px;
 		transition: text-shadow 250ms ease;
@@ -52,7 +52,7 @@
 	}
 
 	.link {
-		font-size: 2rem;
+		font-size: 3rem;
 		font: sans-serif;
 	}
 </style>

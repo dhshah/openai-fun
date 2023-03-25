@@ -24,6 +24,11 @@
 </div>
 
 <style>
+	@font-face {
+		font-family: AnakCute;
+		src: url('../static/AnakCute.ttf');
+	}
+
 	:root {
 		--bg-primary: #f5f5f5;
 		--bg-secondary: #fff;
@@ -33,5 +38,6 @@
 	.container {
 		margin-left: 5rem;
 		height: 100vh;
+		background-color: #001829;
 	}
 </style>

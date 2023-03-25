@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FocussedInput from '$lib/components/FocussedInput.svelte';
 	import { onMount } from 'svelte';
 	import { messages, reset } from '../../stores/messages';
 	interface ChatMessage {
@@ -7,17 +8,16 @@
 		image?: string;
 	}
 
-	let inputBox: HTMLInputElement;
 	let chatting = false;
 	let newMessage: string;
 
 	async function chat() {
+		chatting = true;
+		console.log('chatting');
 		messages.update((currentMessages: ChatMessage[]) => [
 			...currentMessages,
 			{ role: 'user', content: newMessage }
 		]);
-
-		newMessage = '';
 
 		const res = await fetch('/yoda-chat', {
 			method: 'POST',
@@ -25,25 +25,15 @@
 		});
 
 		const chatGptMessage = await res.json();
+		console.log(chatGptMessage);
 
 		messages.update((currentMessages: ChatMessage[]) => [...currentMessages, chatGptMessage]);
-	}
-
-	async function handleKeydown(e: any) {
-		if (e.key === 'Enter') {
-			chatting = true;
-			await chat();
-			chatting = false;
-		}
+		chatting = false;
 	}
 
 	async function clearMessages() {
 		reset();
 	}
-
-	onMount(() => {
-		inputBox.focus();
-	});
 </script>
 
 <div class="container">
@@ -59,29 +49,15 @@
 			</div>
 		{/each}
 	</div>
-	<div class="input-container">
-		<input
-			bind:this={inputBox}
-			on:blur={() => inputBox.focus()}
-			disabled={chatting}
-			bind:value={newMessage}
-			on:keydown={handleKeydown}
-		/>
-	</div>
+	<FocussedInput bind:value={newMessage} disabled={chatting} onTrigger={chat} />
 </div>
 
 <style>
-	* {
-		font-size: 18px;
-		font-family: 'Roboto', sans-serif;
-		color: white;
-	}
 	.container {
 		height: 100%;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		background-color: #001829;
 	}
 	.message {
 		border-radius: 10px;
@@ -102,21 +78,6 @@
 		display: flex;
 		justify-content: flex-end;
 		flex-direction: column;
-	}
-	.input-container {
-		padding: 5px;
-	}
-	.input-container > input {
-		box-sizing: border-box;
-		display: block;
-		width: 100%;
-		border: 3px solid #000;
-		padding: 10px;
-		background: transparent;
-		border-radius: var(--size-radius);
-	}
-	.input-container > input:disabled {
-		background: #c6c6c6;
 	}
 	.clear-button {
 		position: absolute;

@@ -74,8 +74,9 @@
 
 <style>
 	* {
-		font-family: sans-serif;
+		font-family: AnakCute, sans-serif;
 		color: white;
+		font-size: 1.5rem;
 	}
 	.navbar {
 		width: 5rem;
