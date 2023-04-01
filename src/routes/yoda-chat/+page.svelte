@@ -34,7 +34,7 @@
 		<button class="btn btn-warning self-end" on:click={clearMessages}>Clear Messages</button>
 		<div class="grow flex flex-col justify-end overflow-y-auto">
 			<div class="chat chat-start">
-				<p class="chat-bubble bg-secondary text-secondary-content">
+				<p class="chat-bubble bg-primary text-primary-content">
 					Hello, I am Yoda. Ask me a question below.
 				</p>
 			</div>
@@ -44,7 +44,7 @@
 						class={'chat-bubble ' +
 							(message.role === 'user'
 								? 'bg-ghost text-ghost-content'
-								: 'bg-secondary text-secondary-content')}
+								: 'bg-primary text-primary-content')}
 					>
 						{message.content}
 					</p>
