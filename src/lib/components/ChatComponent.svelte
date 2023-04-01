@@ -24,13 +24,12 @@
 </script>
 
 <div class="flex flex-col h-full p-2">
-	<h1 class="text-neutral text-5xl font-fun text-center">{chatTitle}</h1>
+	<h1 class="text-5xl font-fun text-center">{chatTitle}</h1>
 	<div class="grow py-2">
 		<slot />
 	</div>
 	<input
 		bind:this={inputBox}
-		on:blur={() => inputBox.focus()}
 		disabled={chatting}
 		bind:value
 		on:keydown={handleKeydown}

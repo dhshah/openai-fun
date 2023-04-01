@@ -30,9 +30,9 @@
 </script>
 
 <ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
-	<div class="h-full flex flex-col">
+	<div class="max-h-full h-full flex flex-col">
 		<button class="btn btn-warning self-end" on:click={clearMessages}>Clear Messages</button>
-		<div class="grow flex flex-col justify-end">
+		<div class="grow flex flex-col justify-end overflow-y-auto">
 			<div class="chat chat-start">
 				<p class="chat-bubble bg-yoda text-yoda-content">
 					Hello, I am Yoda. Ask me a question below.
