@@ -75,15 +75,4 @@
 		font-family: AnakCute;
 		src: url('../static/AnakCute.ttf');
 	}
-	:root {
-		--bg-primary: #001829;
-		--bg-secondary: #297ea6;
-		--text-primary: #fff;
-		--text-dark: #000;
-		--home-color: #7cddfe;
-		--yoda-chat-color: #f59090;
-		--rapbot-color: #867eec;
-		--warning-color: #f5c490;
-		--warning-text-color: #000;
-	}
 </style>
