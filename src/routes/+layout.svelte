@@ -9,6 +9,7 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import Background from '$lib/components/Background.svelte';
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 	$: if (browser && analyticsId) {
@@ -58,14 +59,13 @@
 	let datatheme = 'retro';
 </script>
 
-<!-- 
-<button class="btn btn-warning absolute bottom-2 right-2 w-40" on:click={randomTheme}
-	>{datatheme}</button
-> -->
-
-<div class="h-screen max-h-screen flex flex-col" data-theme={datatheme}>
+<div class="h-screen max-h-screen max-w-screen w-screen flex flex-col" data-theme={datatheme}>
+	<Background />
+	<button class="btn btn-warning absolute bottom-2 right-2 w-40" on:click={randomTheme}>
+		{datatheme}
+	</button>
 	<Navbar />
-	<div class="grow bg-base-300">
+	<div class="grow bg-base-100">
 		<slot />
 	</div>
 </div>

@@ -12,7 +12,7 @@
 </script>
 
 <div class="w-full navbar bg-base-300">
-	<div class="flex-1 px-2 mx-2">
+	<div class="flex-1 px-2 mx-2 z-10">
 		<a href="/" class="text-base-content font-bold font-underline text-3xl font-fun"
 			>AimlessTechie</a
 		>

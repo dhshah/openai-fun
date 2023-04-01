@@ -40,7 +40,7 @@
 				disabled={chatting}
 				bind:value
 				on:keydown={handleKeydown}
-				class={'input w-full'}
+				class={'input input-bordered border-4 border-r-0 w-full'}
 			/>
 			<button class="btn btn-square" on:click={chat}>
 				<svg
