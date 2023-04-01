@@ -20,42 +20,16 @@
 	}
 </script>
 
-<Nav />
-<div class="container">
-	<slot />
+<div class="h-screen flex flex-col">
+	<Nav />
+	<div class="grow">
+		<slot />
+	</div>
 </div>
 
 <style>
 	@font-face {
 		font-family: AnakCute;
 		src: url('../static/AnakCute.ttf');
-	}
-
-	@media screen and (min-width: 480px) {
-		:root {
-			font-size: 16px;
-		}
-	}
-	@media screen and (max-width: 480px) {
-		:root {
-			font-size: 11px;
-		}
-	}
-	:root {
-		--bg-primary: #001829;
-		--bg-secondary: #297ea6;
-		--text-primary: #fff;
-		--text-dark: #000;
-		--home-color: #7cddfe;
-		--yoda-chat-color: #f59090;
-		--rapbot-color: #867eec;
-		--warning-color: #f5c490;
-		--warning-text-color: #000;
-	}
-	.container {
-		margin-left: 5rem;
-		height: 100%;
-		box-sizing: border-box;
-		background-color: #001829;
 	}
 </style>
