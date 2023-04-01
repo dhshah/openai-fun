@@ -101,9 +101,10 @@
 		height: 100vh;
 		position: fixed;
 		background-color: var(--bg-primary);
-		border-right: 3px solid var(--bg-secondary);
+		border-right: 1px solid var(--bg-secondary);
 		transition: width 200ms ease;
 		z-index: 100;
+		padding: 0;
 	}
 
 	.navbar-nav {
@@ -114,6 +115,7 @@
 		flex-direction: column;
 		align-items: center;
 		height: 100%;
+		width: 100%;
 	}
 
 	.nav-item {
