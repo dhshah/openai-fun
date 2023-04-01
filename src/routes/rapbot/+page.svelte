@@ -32,6 +32,6 @@
 
 <ChatComponent chatTitle={'Rapbot'} onTrigger={chat}>
 	<div class="h-full w-full flex items-center content-center">
-		<p class="shrink">{$rap != '' ? $rap : $greeting}</p>
+		<p class="text-neutral shrink">{$rap != '' ? $rap : $greeting}</p>
 	</div>
 </ChatComponent>

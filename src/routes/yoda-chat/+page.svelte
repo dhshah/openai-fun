@@ -31,9 +31,7 @@
 
 <ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
 	<div class="h-full flex flex-col">
-		<button class="btn btn-outline btn-warning self-end" on:click={clearMessages}
-			>Clear Messages</button
-		>
+		<button class="btn btn-warning self-end" on:click={clearMessages}>Clear Messages</button>
 		<div class="grow flex flex-col justify-end">
 			<div class="chat chat-start">
 				<p class="chat-bubble bg-yoda text-yoda-content">

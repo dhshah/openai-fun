@@ -21,7 +21,7 @@
 </script>
 
 <Nav />
-<div class="pl-[calc(5rem+3px)] h-screen">
+<div class="pl-[calc(5rem+3px)] h-full bg-base-300">
 	<slot />
 </div>
 
