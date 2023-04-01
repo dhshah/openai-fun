@@ -71,8 +71,5 @@
 </div>
 
 <style>
-	@font-face {
-		font-family: AnakCute;
-		src: url('../static/AnakCute.ttf');
-	}
+	@import url('https://fonts.cdnfonts.com/css/a-anak-cute');
 </style>

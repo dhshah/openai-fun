@@ -6,7 +6,7 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
-      fun: 'AnakCute',
+      fun: 'a Anak Cute',
     },
   },
   plugins: [forms, typography, daisyui],
