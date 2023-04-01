@@ -28,9 +28,9 @@
 	});
 </script>
 
-<div class="flex flex-col h-full p-2">
+<div class="flex flex-col h-full max-h-full p-2">
 	<h1 class="text-5xl font-fun text-center">{chatTitle}</h1>
-	<div class="grow py-2">
+	<div class="grow py-2 overflow-y-auto">
 		<slot />
 	</div>
 	<div class="form-control">

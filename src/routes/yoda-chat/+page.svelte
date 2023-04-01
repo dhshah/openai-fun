@@ -30,26 +30,28 @@
 </script>
 
 <ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
-	<div class="max-h-full h-full flex flex-col">
-		<button class="btn btn-warning self-end" on:click={clearMessages}>Clear Messages</button>
-		<div class="grow flex flex-col justify-end overflow-y-auto">
-			<div class="chat chat-start">
-				<p class="chat-bubble bg-primary text-primary-content">
-					Hello, I am Yoda. Ask me a question below.
-				</p>
-			</div>
-			{#each $messages.filter((message) => message.role !== 'system') as message}
-				<div class={'chat ' + (message.role === 'user' ? 'chat-end' : 'chat-start')}>
-					<p
-						class={'chat-bubble ' +
-							(message.role === 'user'
-								? 'bg-ghost text-ghost-content'
-								: 'bg-primary text-primary-content')}
-					>
-						{message.content}
+	<div class="max-h-full flex flex-col">
+		<button class="btn btn-warning self-end mb-1" on:click={clearMessages}>Clear Messages</button>
+		<div class="max-h-full overflow-auto">
+			<div class="grow flex flex-col justify-end">
+				<div class="chat chat-start">
+					<p class="chat-bubble bg-primary text-primary-content">
+						Hello, I am Yoda. Ask me a question below.
 					</p>
 				</div>
-			{/each}
+				{#each $messages.filter((message) => message.role !== 'system') as message}
+					<div class={'chat ' + (message.role === 'user' ? 'chat-end' : 'chat-start')}>
+						<p
+							class={'chat-bubble ' +
+								(message.role === 'user'
+									? 'bg-ghost text-ghost-content'
+									: 'bg-primary text-primary-content')}
+						>
+							{message.content}
+						</p>
+					</div>
+				{/each}
+			</div>
 		</div>
 	</div>
 </ChatComponent>

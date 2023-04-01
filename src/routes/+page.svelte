@@ -1,3 +1,43 @@
+<script lang="ts">
+	import { theme } from '$lib/theme_store';
+
+	let randomTheme = () => {
+		let themes = [
+			'light',
+			'dark',
+			'emerald',
+			'cupcake',
+			'bumblebee',
+			'corporate',
+			'synthwave',
+			'retro',
+			'cyberpunk',
+			'valentine',
+			'halloween',
+			'garden',
+			'forest',
+			'aqua',
+			'lofi',
+			'pastel',
+			'fantasy',
+			'wireframe',
+			'black',
+			'luxury',
+			'dracula',
+			'cmyk',
+			'autumm',
+			'business',
+			'acid',
+			'lemonade',
+			'night',
+			'coffee',
+			'winter'
+		];
+		let random = Math.floor(Math.random() * themes.length);
+		theme.set(themes[random]);
+	};
+</script>
+
 <div class="hero h-full">
 	<div class="hero-content">
 		<div class="max-w-md">
@@ -15,3 +55,6 @@
 		</div>
 	</div>
 </div>
+<button class="btn btn-warning fixed bottom-2 right-2 w-40" on:click={randomTheme}>
+	{$theme}
+</button>
