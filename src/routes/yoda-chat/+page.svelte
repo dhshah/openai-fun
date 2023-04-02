@@ -30,64 +30,26 @@
 </script>
 
 <ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
-	<div class="container">
-		<button class="clear-button" on:click={clearMessages}>Clear Messages</button>
-		<div class="chat">
-			<div class="message gpt-message">
-				<p style="margin:0">Hello, I am Yoda. Ask me a question below.</p>
+	<div class="max-h-full h-full flex flex-col">
+		<button class="btn btn-warning self-end" on:click={clearMessages}>Clear Messages</button>
+		<div class="grow flex flex-col justify-end overflow-y-auto">
+			<div class="chat chat-start">
+				<p class="chat-bubble bg-yoda text-yoda-content">
+					Hello, I am Yoda. Ask me a question below.
+				</p>
 			</div>
 			{#each $messages.filter((message) => message.role !== 'system') as message}
-				<div class={'message ' + (message.role === 'user' ? 'user-message' : 'gpt-message')}>
-					<p style="margin:0">{message.content}</p>
+				<div class={'chat ' + (message.role === 'user' ? 'chat-end' : 'chat-start')}>
+					<p
+						class={'chat-bubble ' +
+							(message.role === 'user'
+								? 'bg-ghost text-ghost-content'
+								: 'bg-yoda text-yoda-content')}
+					>
+						{message.content}
+					</p>
 				</div>
 			{/each}
 		</div>
 	</div>
 </ChatComponent>
-
-<style>
-	.container {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		align-items: stretch;
-	}
-	.message {
-		border-radius: 10px;
-		padding: 10px;
-		margin: 10px;
-		max-width: 500px;
-		background-color: var(--yoda-chat-color);
-	}
-	.user-message {
-		filter: brightness(0.85);
-		align-self: flex-end;
-		margin-left: 50px;
-	}
-	.gpt-message {
-		align-self: flex-start;
-		margin-right: 50px;
-	}
-	.chat {
-		flex: auto;
-		display: flex;
-		justify-content: flex-end;
-		flex-direction: column;
-	}
-	.clear-button {
-		top: 10px;
-		right: 10px;
-		background: var(--warning-color);
-		color: var(--warning-text-color);
-		border: none;
-		padding: 0.2rem;
-		border-radius: 2px;
-		box-shadow: 0 0 4px 0px white;
-		align-self: flex-end;
-		margin-right: 10px;
-		transition: box-shadow 150ms ease;
-	}
-	.clear-button:hover {
-		box-shadow: 0 0 10px 2px var(--yoda-chat-color);
-	}
-</style>

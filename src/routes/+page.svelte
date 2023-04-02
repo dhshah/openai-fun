@@ -1,58 +1,17 @@
-<div class="spacer layer1">
-	<div class="hero">
-		<h1>Welcome!</h1>
-		<p>I made this thing</p>
-		<span class="link"> Try it >>> <a href="/yoda-chat">Yoda Chat</a></span>
+<div class="hero h-full">
+	<div class="hero-content">
+		<div class="max-w-md">
+			<div class="mockup-code bg-accent-content text-accent">
+				<pre data-prefix="$"><code>./helloworld</code></pre>
+				<pre data-prefix=">"><code>Welcome!</code></pre>
+				<pre data-prefix=">"><code>I made this thing</code></pre>
+				<pre data-prefix=">"><code
+						>Try it >>> <a
+							class="text-accent-focus transition-[text-shadow] duration-300 [text-shadow:_0_0_20px_hsl(var(--a))] hover:[text-shadow:_0_0_0_#fff]"
+							href="/yoda-chat">Yoda Chat</a
+						></code
+					></pre>
+			</div>
+		</div>
 	</div>
 </div>
-
-<style>
-	.spacer {
-		aspect-ratio: 1920/1090;
-		width: 100%;
-		height: 100%;
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-	}
-
-	.layer1 {
-		background-image: url('../assets/background.svg');
-	}
-
-	.hero {
-		width: 100%;
-		height: 100%;
-		color: white;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-	.hero * {
-		font-family: AnakCute;
-	}
-
-	.hero h1 {
-		font-size: 7.5rem;
-	}
-	.hero p {
-		font-size: 3rem;
-	}
-	.link a {
-		font-size: 3rem;
-		color: #f59090;
-		text-shadow: #f59090 0 0 2px;
-		transition: text-shadow 250ms ease;
-		text-decoration: none;
-	}
-
-	.link a:hover {
-		text-shadow: #f59090 0 0 20px;
-	}
-
-	.link {
-		font-size: 3rem;
-		font: sans-serif;
-	}
-</style>
