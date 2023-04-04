@@ -1,17 +1,17 @@
 <script>
 	const items = [
 		// { label: 'Home', href: '/' },
-		// { label: 'About', href: '/about' },
 		// { label: 'Contact', href: '/contact' },
 		// { label: 'Blog', href: '/blog' },
 		// { label: 'Projects', href: '/projects' },
 		// { label: 'Resume', href: '/resume' },
 		// { label: 'Chat', href: '/chat' },
-		{ label: 'Yoda Chat', href: '/yoda-chat' }
+		{ label: 'Yoda Chat', href: '/yoda-chat' },
+		{ label: 'About Me', href: '/about' }
 	];
 </script>
 
-<div class="w-full navbar bg-base-300">
+<div class="w-full navbar bg-base-300 border-b-2 border-accent">
 	<div class="flex-1 px-2 mx-2 z-10">
 		<a href="/" class="text-base-content font-bold font-underline text-3xl font-fun"
 			>AimlessTechie</a

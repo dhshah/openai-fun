@@ -1,0 +1,27 @@
+---
+title: Post One
+date: "2021-12-14"
+---
+<div class="container mx-auto px-4 md:px-0 prose py-10">
+
+# About Me
+
+I am a software engineer with a diverse set of interests and a passion for continuous learning. This digital platform serves as my professional journal, where I document my experiences, interests, and insights as I navigate the ever-evolving landscape of technology and innovation.
+
+As a dedicated problem solver and knowledge seeker, I constantly find myself drawn to new subjects and ideas. However, my risk-averse nature can sometimes create internal conflicts with my desire to explore new territories. This journal is a means for me to organize and share my thoughts, discoveries, and reflections in a structured and coherent manner.
+
+## Career
+
+I am currently a Software Engineer at Color, where I contribute in the Core Services team. My professional background includes working in the Payments and Civics departments at Google, serving as a contractor for the Energy Information Administration, and undertaking side projects at the University of Maryland (UMD). At UMD, I obtained my degree in Computer Science while also pursuing my interests in technology and its societal implications.
+
+## Personal
+
+As a first-generation immigrant, my family moved from India to the United States in 2006 to provide better educational opportunities for my siblings and me. This unique cultural background has significantly influenced my personal and professional life, as I strive to balance the values of my  Indian heritage with American culture.
+
+## Interests
+
+Woodworking is currently my primary interest, but I engage in a wide variety of pursuits, such as gaming, hiking, biking, and snowboarding. My insatiable curiosity often leads me to explore diverse topics, including technology, financial well-being, psychology, astronomy, and social issues.
+
+This space serves as a testament to my dedication to personal and professional growth, as well as my desire to share my journey with others.
+
+</div>
