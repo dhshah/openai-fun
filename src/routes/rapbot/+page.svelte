@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChatComponent from '$lib/components/ChatComponent.svelte';
+	import ChatInput from '$lib/components/ChatInput.svelte';
 	import { createStore } from '$lib/store';
 	import { onMount } from 'svelte';
 
@@ -30,8 +30,12 @@
 	});
 </script>
 
-<ChatComponent chatTitle={'Rapbot'} onTrigger={chat}>
-	<div class="h-full w-full flex items-center content-center">
-		<p class="text-neutral shrink">{$rap != '' ? $rap : $greeting}</p>
+<div class="flex flex-col h-full max-h-full p-2">
+	<h1 class="text-5xl font-fun text-center">RapBot</h1>
+	<div class="grow py-2 overflow-y-auto">
+		<div class="h-full w-full flex items-center content-center">
+			<p class="text-neutral shrink">{$rap != '' ? $rap : $greeting}</p>
+		</div>
 	</div>
-</ChatComponent>
+	<ChatInput onSubmit={chat} />
+</div>

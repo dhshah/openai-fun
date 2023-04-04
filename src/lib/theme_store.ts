@@ -1,3 +1,3 @@
 import { createStore } from './store';
 
-export const theme = createStore('theme', 'light');
+export const theme = createStore('theme', 'luxury');

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChatComponent from '$lib/components/ChatComponent.svelte';
+	import ChatInput from '$lib/components/ChatInput.svelte';
 	import { createStore } from '$lib/store';
 	interface ChatMessage {
 		role: string;
@@ -29,29 +29,29 @@
 	}
 </script>
 
-<ChatComponent chatTitle={'Sassy Yoda'} onTrigger={chat}>
-	<div class="max-h-full flex flex-col">
-		<button class="btn btn-warning self-end mb-1" on:click={clearMessages}>Clear Messages</button>
-		<div class="max-h-full overflow-auto">
-			<div class="grow flex flex-col justify-end">
-				<div class="chat chat-start">
-					<p class="chat-bubble bg-primary text-primary-content">
-						Hello, I am Yoda. Ask me a question below.
+<h1 class="text-5xl font-fun text-center">Sassy Yoda</h1>
+<div class="flex flex-col mx-auto">
+	<button class="btn btn-warning self-end mb-1" on:click={clearMessages}>Clear Messages</button>
+	<div class="grow bg-base-100 md:border-4 md:rounded-2xl h-[calc(100vh-11rem)] overflow-auto">
+		<div class="p-4 flex flex-col justify-end min-h-full">
+			<div class="chat chat-start">
+				<p class="chat-bubble bg-accent text-accent-content">
+					Hello, I am Yoda. Ask me a question below.
+				</p>
+			</div>
+			{#each $messages.filter((message) => message.role !== 'system') as message}
+				<div class={'chat ' + (message.role === 'user' ? 'chat-end' : 'chat-start')}>
+					<p
+						class={'chat-bubble ' +
+							(message.role === 'user'
+								? 'bg-ghost text-ghost-content'
+								: 'bg-accent text-accent-content')}
+					>
+						{message.content}
 					</p>
 				</div>
-				{#each $messages.filter((message) => message.role !== 'system') as message}
-					<div class={'chat ' + (message.role === 'user' ? 'chat-end' : 'chat-start')}>
-						<p
-							class={'chat-bubble ' +
-								(message.role === 'user'
-									? 'bg-ghost text-ghost-content'
-									: 'bg-primary text-primary-content')}
-						>
-							{message.content}
-						</p>
-					</div>
-				{/each}
-			</div>
+			{/each}
+			<ChatInput color="accent-content" onSubmit={chat} />
 		</div>
 	</div>
-</ChatComponent>
+</div>
