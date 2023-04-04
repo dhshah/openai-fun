@@ -55,7 +55,7 @@
 
 <div
 	class="flex flex-col min-h-full bg-gradient-to-br from-primary to-secondary text-primary-content"
-	data-theme={dev ? $theme : 'luxury'}
+	data-theme={dev ? $theme : 'cmyk'}
 >
 	<Navbar />
 	<slot />
