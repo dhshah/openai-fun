@@ -1,0 +1,11 @@
+---
+title: TailwindCss & DaisyUI
+date: "2023-04-07"
+tags: [aimlesstechie, blogging]
+---
+
+# The AimlessTechie Website
+
+This website is meant to be a long experiment. I have set it up to learn and experiment with different technologies. I have used Svelte, TailwindCSS, and DaisyUI and is being hosted on Vercel.
+
+My goal is to reinvent as many wheels as possible to understand how to implement things well. To start of with, I will be creating my own blog hosting interface. I obviously will not have enough time to reinvent the wheel for every single thing, but I will try to do the bits I find interesting.
