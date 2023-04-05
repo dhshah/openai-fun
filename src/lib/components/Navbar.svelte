@@ -3,7 +3,7 @@
 	const items = [
 		// { label: 'Home', href: '/' },
 		// { label: 'Contact', href: '/contact' },
-		// { label: 'Blog', href: '/blog' },
+		{ label: 'Blog', href: '/blog' },
 		// { label: 'Projects', href: '/projects' },
 		// { label: 'Resume', href: '/resume' },
 		// { label: 'Chat', href: '/chat' },
