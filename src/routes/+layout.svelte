@@ -10,6 +10,7 @@
 	import { page } from '$app/stores';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { theme } from '$lib/theme_store';
+	import SelectThemeButton from '$lib/components/SelectThemeButton.svelte';
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 	$: if (browser && analyticsId) {
@@ -19,38 +20,6 @@
 			analyticsId
 		});
 	}
-
-	let themes = [
-		'light',
-		'dark',
-		'emerald',
-		'cupcake',
-		'bumblebee',
-		'corporate',
-		'synthwave',
-		'retro',
-		'cyberpunk',
-		'valentine',
-		'halloween',
-		'garden',
-		'forest',
-		'aqua',
-		'lofi',
-		'pastel',
-		'fantasy',
-		'wireframe',
-		'black',
-		'luxury',
-		'dracula',
-		'cmyk',
-		'autumm',
-		'business',
-		'acid',
-		'lemonade',
-		'night',
-		'coffee',
-		'winter'
-	];
 </script>
 
 <div
@@ -60,16 +29,9 @@
 	<Navbar />
 	<slot />
 	{#if dev}
-		<div class="dropdown dropdown-top dropdown-end fixed bottom-2 right-2">
-			<button tabindex="0" class="btn btn-warning m-1">{$theme}</button>
-			<ul class="dropdown-content bg-accent menu p-2 rounded-box w-52">
-				{#each themes as _theme}
-					<li class="text-accent-content">
-						<button tabindex="0" on:click={() => theme.set(_theme)}>{_theme}</button>
-					</li>
-				{/each}
-			</ul>
-		</div>
+		<span class="fixed bottom-2 right-2"
+			><SelectThemeButton setTheme={(newTheme) => theme.set(newTheme)} /></span
+		>
 	{/if}
 </div>
 

@@ -4,6 +4,12 @@ date: "2023-04-04"
 tags: [aimlesstechie, tailwindcss, daisyui, svelte]
 ---
 
+<script>
+  import SelectThemeButton from '$lib/components/SelectThemeButton.svelte';
+
+  let theme = 'retro';
+</script>
+
 ### How I got here
 
 Svelte has very little in terms of UI component libraries. It's getting better, but it's not the same as React or Angular. The only thing that works easily with Svelte is CSS only frameworks, like PaperCss or TailwindCss. I have also been looking for a excuse to learn TailwindCss, so here we are. I also needed something to suplement my lack of designing skills and that's where DaisyUI comes in. Not only does it offer some basic styled components, it also offers pre-baked themes.
@@ -22,13 +28,18 @@ I like that the flexibility of TailwindCss and how close it is to vanilla CSS. T
 
 <div class="[height:96px] bg-red-300 w-[96px]"></div>
 
-<section data-theme="retro" class="py-2 my-2 shadow-[0_0_0_100vmax_hsl(var(--a))] [clip-path:_inset(0_-100vmax)] bg-accent text-accent-content">
-  DaisyUI's themes are great! I like how swappable they are and how easy they are to integrate. I also like the basic components that are built into the Tailwind. I implemented a randomize button in dev mode which I can play around with.
-
+<section data-theme={theme} class="py-2 my-2 shadow-[0_0_0_100vmax_hsl(var(--a))] [clip-path:_inset(0_-100vmax)] bg-accent text-accent-content">
+  DaisyUI's themes are great! I like how swappable they are and how easy they are to integrate. I also like the basic components that are built into the Tailwind. I implemented a randomize button in dev mode which I can play around with. Use the button on the bottom right to change the theme for this section.
   This section has been styled like so:
 
   ```html
-  <p data-theme="retro" class="bg-accent text-accent-content"></p>
+  <section 
+    data-theme={theme} 
+    class="bg-accent text-accent-content ...">
   ```
 
 </section>
+
+<div data-theme={theme} class="fixed bottom-2 right-2">
+  <SelectThemeButton setTheme={(newTheme) => theme = newTheme} />
+</div>
