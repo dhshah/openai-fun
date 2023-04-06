@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<div class="prose w-full max-w-4xl mx-auto">
+<div class="prose w-full max-w-4xl mx-auto px-4">
 	<h1 class="text-3xl">Blog</h1>
 	{#each data.posts as post}
 		<h3>
